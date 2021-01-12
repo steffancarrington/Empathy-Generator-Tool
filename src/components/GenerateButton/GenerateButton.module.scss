@@ -1,0 +1,26 @@
+// Generate New Sentence Button
+
+// Tools
+@import '../../../styles/02-tools/breakpoints';
+@import '../../../styles/02-tools/fluid-typography';
+@import '../../../styles/02-tools/px-to-rem';
+@import '../../../styles/02-tools/animations';
+
+.button {
+  display: block;
+  margin: size(30) auto 0;
+  color: white;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  svg {
+    height: size(70);
+  }
+
+  @include breakpoint(medium) {
+    svg {
+      height: size(90);
+    }
+  }
+}

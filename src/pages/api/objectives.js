@@ -1,0 +1,1 @@
+export const objectives = ['motivation', 'friends', 'energy', 'love', 'their booked seat on a train', 'a baby change', 'a job', 'some lunch', 'a permit for a skip', 'a parking space', 'a toilet', 'a coffee place', 'their way to work', 'a builder', 'a meal kit delivery service', 'a holiday apartment in Barcelona', 'a DIY shelving video'];

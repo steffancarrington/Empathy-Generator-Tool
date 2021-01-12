@@ -1,0 +1,16 @@
+/*
+  Convert PX Font Size to REM
+  Usage Example
+
+  h1 {
+    font-size: size(72);
+  }   
+*/
+
+// Defining base font size (HTML Default of 16px)
+$base-size: 16;
+
+//Function to convert px value into rem
+@function size($target, $context: $base-size) {
+  @return ($target / $context) * 1rem;
+}

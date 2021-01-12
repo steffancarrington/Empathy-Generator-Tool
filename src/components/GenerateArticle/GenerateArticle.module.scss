@@ -1,0 +1,14 @@
+// Generated Article Styles
+
+// Tools
+@import '../../../styles/02-tools/breakpoints';
+@import '../../../styles/02-tools/fluid-typography';
+@import '../../../styles/02-tools/px-to-rem';
+@import '../../../styles/02-tools/animations';
+
+.article {
+  margin: auto;
+  padding: size(20) size(40);
+  max-width: size(1080);
+  text-align: center;
+}

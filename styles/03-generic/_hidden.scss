@@ -1,0 +1,29 @@
+// Visually Hide Elements with Accessibility in Mind
+.hidden-v {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Hide Elements for Mobile
+.hidden-m {
+  display: none;
+
+  @include breakpoint(smedium) {
+    display: block;
+  }
+}
+
+// Hide Elements for Desktop
+.hidden-d {
+  display: block;
+
+  @include breakpoint(smedium) {
+    display: none;
+  }
+}

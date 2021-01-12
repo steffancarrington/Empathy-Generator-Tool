@@ -1,0 +1,74 @@
+// Globals
+
+// Settings, Mixins & Resets
+@import '01-settings/fonts';
+@import '02-tools/breakpoints';
+@import '02-tools/px-to-rem';
+@import '02-tools/fluid-typography';
+@import '02-tools/animations';
+@import '03-generic/hidden';
+@import '03-generic/normalise';
+
+// Colours
+:root {
+  --inviqa-brand-blue: #334982;
+  --inviqa-brand-gold: #fdb913;
+  --inviqa-brand-green: #00857d;
+  --inviqa-brand-grey: #333333;
+  --inviqa-brand-neutral: #ffffff;
+  --inviqa-brand-pink: #e40087;
+  --inviqa-brand-purple: #782b8f;
+  --inviqa-brand-red: #dd372f;
+  --inviqa-brand-font: 'Avenir', Arial, Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--inviqa-brand-neutral);
+  font-family: var(--inviqa-brand-font);
+  -webkit-font-smoothing: antialiased;
+  background: var(--inviqa-brand-purple);
+  transition: background-color 0.3s ease;
+
+  // Target direct div (next specific)
+  & > div {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+// Targeting Users who prefer reduced motion
+// But also targetinng those with screens that have a low refresh rate
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  * {
+    // CSS transitions
+    transition-property: none;
+
+    // CSS transforms
+    transform: none;
+
+    // CSS animations
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
