@@ -15,7 +15,7 @@ const GenerateArticle = () => {
   const nameArray = names;
   const objectiveArray = objectives;
   const biologicalArray = biologicals;
-  const culturalArray = ['with low income', 'with medium income', 'with inherited wealth', 'with high income'];
+  const culturalArray = ['low income', 'medium income', 'with inherited wealth', 'high income'];
   const organisationalArray = organisationals;
 
   // Randomiser function to pick random value from array

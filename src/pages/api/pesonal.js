@@ -1,1 +1,1 @@
-const personal = [];
+const personal = ['test', 'test 2', 'test 3'];

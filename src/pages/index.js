@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import GenerateArticle from '../components/GenerateArticle';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
 const openGraphData = {
   locale: 'en_GB',
-  title: 'Empathy Generator - Inviqa',
-  description: 'The Inviqa team explores empathy generator tool',
+  title: 'Inclusive Scenario Generator - Inviqa',
+  description: 'The Inviqa team explores an inclusive scenario generator tool',
   ogUrl: 'https://inviqa.com/',
   ogType: 'article',
   ogHandle: '@inviqa',
@@ -21,13 +21,6 @@ const openGraphData = {
 };
 
 export default function Home() {
-  const [bgColour, setBgColor] = useState('purple');
-
-  let bgColours = ['red', 'purple', '#E84751', 'blue', 'orange', '#323643'];
-  
-  // Change Background Colour
-  const bgColourChange = bgColours => newbgColour = bgColours[Math.floor(Math.random() * bgColours.length)];
-
   return (
     <>
       <Head>
@@ -86,8 +79,6 @@ export default function Home() {
       <main>
         <GenerateArticle />
       </main>
-
-      <Footer />
     </>
   )
 }
