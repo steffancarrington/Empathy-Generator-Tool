@@ -3,7 +3,8 @@
 @font-face {
   font-family: 'Avenir';
   src: url('../../public/fonts/avenir.woff2') format('woff2'),
-       url('../../public/fonts/avenir.woff') format('woff');
+    url('../../public/fonts/avenir.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
