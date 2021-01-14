@@ -1,0 +1,51 @@
+// Dimension Toggle Button Styles
+
+// Tools
+@import '../../../styles/02-tools/breakpoints';
+@import '../../../styles/02-tools/fluid-typography';
+@import '../../../styles/02-tools/px-to-rem';
+@import '../../../styles/02-tools/animations';
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: size(20) size(20) size(40);
+  width: 100%;
+  text-align: center;
+}
+
+.button {
+  margin-right: size(10);
+  height: size(30);
+  width: size(50);
+  background: #000;
+  color: white;
+  border-radius: size(20);
+  border: size(1) solid var(--inviqa-brand-dark);
+  cursor: pointer;
+}
+
+.buttonSwitch {
+  display: inline-block;
+  margin: size(2) 0 0;
+  height: size(22);
+  width: size(22);
+  background: #ffffff;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+
+  .button[aria-checked='true'] & {
+    transform: translateX(0.625rem);
+  }
+
+  .button[aria-checked='false'] & {
+    transform: translateX(-0.625rem);
+  }
+}
+
+.switchLabel {
+  width: size(300);
+  @include fluidType(font-size, 320px, 900px, 20px, 28px);
+  text-align: left;
+}
