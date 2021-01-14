@@ -4,7 +4,7 @@ import { names } from '../../pages/api/names';
 import { objectives } from '../../pages/api/objectives';
 import { biologicals } from '../../pages/api/biological';
 import { organisationals } from '../../pages/api/organisational';
-import { personals } from '../../pages/api/pesonal';
+import { personals } from '../../pages/api/personal';
 import GenerateButton from '../GenerateButton';
 import GenerateSentence from '../GenerateSentence';
 import DimensionToggle from '../DimensionToggle';
