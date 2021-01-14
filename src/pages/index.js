@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import GenerateArticle from '../components/GenerateArticle';
-// import Footer from '../components/Footer';
 
 const openGraphData = {
   locale: 'en_GB',
@@ -12,10 +11,12 @@ const openGraphData = {
   ogType: 'article',
   ogHandle: '@inviqa',
   ogAuthor: 'Inviqa',
-  ogImageFacebook: '/images/social/gift-giving-facebook.png',
-  ogImageTwitter: '/images/social/gift-giving-twitter.png',
+  ogImageFacebook:
+    'https://inclusive-scenario-generator.vercel.app//inclusive-scenario-generator.jpg',
+  ogImageTwitter:
+    'https://inclusive-scenario-generator.vercel.app//inclusive-scenario-generator.jpg',
   ogImageType: 'image/png',
-  ogImageAlt: 'Inviqas Gift Giving Survey Results',
+  ogImageAlt: 'Inclusive Scenario Generator App',
   ogImageHeight: '630',
   ogImageWidth: '1200'
 };
@@ -27,23 +28,12 @@ export default function Home() {
         {/* Disable Search Engine Indexing and Crawling */}
         <meta name="robots" content="noindex" />
         <meta name="googlebot" content="noindex" />
- 
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>{openGraphData.title}</title>
         <meta name="description" content={openGraphData.description} />
-
-        {/* Google Tag Manager */}
-        <script dangerouslySetInnerHTML={{
-          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer', '${process.env.gtmId}');`,
-        }}>
-        </script>
-        {/* End Google Tag Manager */}
 
         {/* Favicons */}
         <link rel="icon" href="/favicon/favicon.ico" />
@@ -80,5 +70,5 @@ export default function Home() {
         <GenerateArticle />
       </main>
     </>
-  )
+  );
 }
