@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRandomiser } from '../hooks/useRandomiser';
+import { useFirebaseData } from '../hooks/useFirebaseData';
 import Head from 'next/head';
 import Header from '../components/Header';
 import GenerateArticle from '../components/GenerateArticle';
+import EditableSentence from '../components/EditableSentence';
 
 const openGraphData = {
   locale: 'en_GB',
@@ -21,7 +24,16 @@ const openGraphData = {
   ogImageWidth: '1200'
 };
 
-export default function Home() {
+export default function Home({ inclusiveData }) {
+  const { age, objectivesAll } = inclusiveData;
+  const [storedHeading, setStoredHeading] = useState();
+
+  useEffect(() => {
+    setStoredHeading(useRandomiser(objectivesAll));
+  }, [age]);
+
+  // const [storedHeading, setStoredHeading] = useState(useRandomiser(objectivesAll));
+
   return (
     <>
       <Head>
@@ -67,8 +79,45 @@ export default function Home() {
       <Header />
 
       <main>
-        <GenerateArticle />
+        <GenerateArticle inclusiveData={inclusiveData} />
+
+        <EditableSentence text={storedHeading} onSetText={(text) => setStoredHeading(text)} />
       </main>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    // Get Data from Firebase
+    const names = await useFirebaseData('names');
+    const colours = await useFirebaseData('colours');
+    const objectives = await useFirebaseData('objective');
+    const ages = await useFirebaseData('age');
+    const biologicals = await useFirebaseData('biological');
+    const organisationals = await useFirebaseData('organisational');
+    const culturals = await useFirebaseData('personal-cultural');
+
+    // Structure inclusiveData props
+    const inclusiveData = {
+      colours: colours[0].colours,
+      names: names[0].names,
+      objectivesAll: objectives[0]['all'],
+      objectives13: objectives[0]['13-plus'],
+      ages: ages[0].age,
+      biologicals: biologicals[0].biological,
+      organisationalAll: organisationals[0]['all'],
+      organisational13: organisationals[0]['13-plus'],
+      culturalAll: culturals[0]['all'],
+      cultural13: culturals[0]['13-plus']
+    };
+
+    return {
+      props: {
+        inclusiveData
+      }
+    };
+  } catch (error) {
+    console.error(error);
+  }
 }

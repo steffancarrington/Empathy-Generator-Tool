@@ -4,6 +4,7 @@ import styles from './GenerateSentence.module.scss';
 const GenerateSentence = ({
   name,
   objective,
+  age,
   biological,
   cultural,
   organisational,
@@ -11,7 +12,7 @@ const GenerateSentence = ({
 }) => {
   return (
     <p className={styles.sentence} aria-live="polite" suppressHydrationWarning={true}>
-      {name} would like to find {objective} whilst being {biological}
+      {name}, {age} years old, would like to find {objective} whilst being {biological}
       {toggleActive && `, ${cultural}, `}
       {toggleActive && organisational}
     </p>
