@@ -32,8 +32,6 @@ export default function Home({ inclusiveData }) {
     setStoredHeading(useRandomiser(objectivesAll));
   }, [age]);
 
-  // const [storedHeading, setStoredHeading] = useState(useRandomiser(objectivesAll));
-
   return (
     <>
       <Head>
