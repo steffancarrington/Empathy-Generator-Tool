@@ -13,7 +13,7 @@ const GenerateSentence = ({
   return (
     <p className={styles.sentence} aria-live="polite" suppressHydrationWarning={true}>
       {name}, {age} years old, would like to find {objective} whilst being {biological}
-      {toggleActive && `, ${cultural}, `}
+      {toggleActive && `, ${cultural} and `}
       {toggleActive && organisational}
     </p>
   );

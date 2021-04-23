@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useRandomiser } from '../hooks/useRandomiser';
+import React from 'react';
 import { useFirebaseData } from '../hooks/useFirebaseData';
 import Head from 'next/head';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import GenerateArticle from '../components/GenerateArticle';
-import EditableSentence from '../components/EditableSentence';
 
 const openGraphData = {
   locale: 'en_GB',
@@ -25,13 +24,6 @@ const openGraphData = {
 };
 
 export default function Home({ inclusiveData }) {
-  const { age, objectivesAll } = inclusiveData;
-  const [storedHeading, setStoredHeading] = useState();
-
-  useEffect(() => {
-    setStoredHeading(useRandomiser(objectivesAll));
-  }, [age]);
-
   return (
     <>
       <Head>
@@ -76,10 +68,8 @@ export default function Home({ inclusiveData }) {
 
       <Header />
 
-      <main>
-        <GenerateArticle inclusiveData={inclusiveData} />
-
-        <EditableSentence text={storedHeading} onSetText={(text) => setStoredHeading(text)} />
+      <main aria-busy={inclusiveData ? 'false' : 'true'}>
+        <>{inclusiveData ? <GenerateArticle inclusiveData={inclusiveData} /> : <Loading />}</>
       </main>
     </>
   );
