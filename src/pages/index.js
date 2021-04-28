@@ -69,13 +69,13 @@ export default function Home({ inclusiveData }) {
       <Header />
 
       <main aria-busy={inclusiveData ? 'false' : 'true'}>
-        <>{inclusiveData ? <GenerateArticle inclusiveData={inclusiveData} /> : <Loading />}</>
+        {inclusiveData ? <GenerateArticle inclusiveData={inclusiveData} /> : <Loading />}
       </main>
     </>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     // Get Data from Firebase
     const names = await useFirebaseData('names');
