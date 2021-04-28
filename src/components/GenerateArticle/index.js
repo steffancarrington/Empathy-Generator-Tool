@@ -7,6 +7,7 @@ import DimensionToggle from '../DimensionToggle';
 import styles from './GenerateArticle.module.scss';
 
 const GenerateArticle = ({ inclusiveData }) => {
+  const [scenarioData, setScenarioData] = useState(inclusiveData);
   const {
     names,
     ages,
@@ -18,7 +19,7 @@ const GenerateArticle = ({ inclusiveData }) => {
     organisational13,
     culturalAll,
     cultural13
-  } = inclusiveData;
+  } = scenarioData;
 
   // Set Sate for Inclusive Options
   const [name, setName] = useState(useRandomiser(names));
@@ -30,8 +31,13 @@ const GenerateArticle = ({ inclusiveData }) => {
   const [toggleActive, setToggleActive] = useState('true');
 
   // Fetch Latest Data from Firebase
-  useEffect(() => {
-    inclusiveData = useFetchFirebaseData();
+  useEffect(async () => {
+    try {
+      const inclusiveData = await useFetchFirebaseData();
+      setScenarioData(inclusiveData);
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
   // Conditionally load options based on age (13 plus)
