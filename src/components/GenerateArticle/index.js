@@ -30,7 +30,7 @@ const GenerateArticle = ({ inclusiveData }) => {
   const [toggleActive, setToggleActive] = useState('true');
 
   // Fetch Latest Data from Firebase
-  useEffect(async () => {
+  useEffect(() => {
     inclusiveData = useFetchFirebaseData();
   }, []);
 
