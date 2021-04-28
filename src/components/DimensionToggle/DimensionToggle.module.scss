@@ -45,7 +45,7 @@
 }
 
 .switchLabel {
-  width: size(300);
+  width: auto;
   @include fluidType(font-size, 320px, 900px, 20px, 28px);
   text-align: left;
 }
