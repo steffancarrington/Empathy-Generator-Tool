@@ -5,6 +5,9 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import GenerateArticle from '../components/GenerateArticle';
 
+// Import Register and Unregister from next-offline
+import { register, unregister } from 'next-offline/runtime';
+
 const openGraphData = {
   locale: 'en_GB',
   title: 'Inclusive Scenario Generator - Inviqa',
