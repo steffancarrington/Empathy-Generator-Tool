@@ -2,7 +2,6 @@ if (typeof importScripts === 'function') {
   importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
   /* global workbox */
   if (workbox) {
-    console.log('Workbox is loaded');
     /* injection point for manifest files.  */
     workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
     // control the uncontrolled client side
