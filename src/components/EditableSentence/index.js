@@ -1,70 +1,60 @@
-import React, { useState, useEffect, useRef } from 'react';
-import useKeypress from '../../hooks/useKeypress';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+import React, { useState, useEffect } from 'react';
 import styles from './EditableSentence.module.scss';
 
-const EditableSentence = (props) => {
-  const [isInputActive, setIsInputActive] = useState(false);
-  const [inputValue, setInputValue] = useState(props.text);
-
-  const wrapperRef = useRef(null);
-  const textRef = useRef(null);
-  const inputRef = useRef(null);
-
-  const enter = useKeypress('Enter');
-  const esc = useKeypress('Escape');
-
-  // check to see if the user clicked outside of this component
-  useOnClickOutside(wrapperRef, () => {
-    if (isInputActive) {
-      props.onSetText(inputValue);
-      setIsInputActive(false);
-    }
-  });
-
-  // focus the cursor in the input field on edit start
-  useEffect(() => {
-    if (isInputActive) {
-      inputRef.current.focus();
-    }
-  }, [isInputActive]);
+const Editable = ({ text, type, placeholder, children, childRef }) => {
+  const [isEditing, setEditing] = useState(false);
 
   useEffect(() => {
-    if (isInputActive) {
-      // if Enter is pressed, save the text and case the editor
-      if (enter) {
-        props.onSetText(inputValue);
-        setIsInputActive(false);
-      }
-      // if Escape is pressed, revert the text and close the editor
-      if (esc) {
-        setInputValue(props.text);
-        setIsInputActive(false);
-      }
+    if (childRef && childRef.current && isEditing === true) {
+      childRef.current.focus();
     }
-  }, [enter, esc]); // watch the Enter and Escape key presses
+  }, [isEditing, childRef]);
+
+  const handleKeyDown = (event, type) => {
+    const { key } = event;
+    const keys = ['Escape', 'Tab'];
+    const enterKey = 'Enter';
+    const allKeys = [...keys, enterKey];
+
+    if (
+      (type === 'textarea' && keys.indexOf(key) > -1) ||
+      (type !== 'textarea' && allKeys.indexOf(key) > -1)
+    ) {
+      setEditing(false);
+    }
+  };
+
+  // Make Text Editable on Enter Key Press
+  const handleStartEditing = (event) => {
+    if (event.key === 'Enter') {
+      setEditing(true);
+    }
+  };
 
   return (
-    <span className="inline-text" ref={wrapperRef}>
-      <span
-        ref={textRef}
-        onClick={() => setIsInputActive(true)}
-        className={`inline-text_copy inline-text_copy--${!isInputActive ? 'active' : 'hidden'}`}>
-        {props.text}
-      </span>
-      <input
-        ref={inputRef}
-        // set the width to the input length multiplied by the x height
-        // it's not quite right but gets it close
-        // style={{ width: Math.ceil(inputValue.length * 0.9) + 'ex' }}
-        value={inputValue}
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-        className={`inline-text_input inline-text_input--${isInputActive ? 'active' : 'hidden'}`}
-      />
-    </span>
+    <>
+      {isEditing ? (
+        <span
+          className={styles.inputWrapper}
+          tabIndex="0"
+          onBlur={() => setEditing(false)}
+          onKeyDown={(e) => handleKeyDown(e, type)}>
+          {children}
+        </span>
+      ) : (
+        <span className={`editable-${type}`} onClick={() => setEditing(true)}>
+          <span
+            id="editableText"
+            tabIndex="0"
+            className={styles.editedText}
+            onKeyDown={(e) => handleStartEditing(e)}
+            suppressHydrationWarning>
+            {text || placeholder || 'Editable content'}
+          </span>
+        </span>
+      )}
+    </>
   );
 };
 
-export default EditableSentence;
+export default Editable;
