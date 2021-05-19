@@ -27,7 +27,7 @@ export default class extends Document {
     return (
       <Html lang="en-gb" dir="ltr">
         <Head>
-          <title>{openGraphData.title}</title>
+          <title>Inclusive Scenario Generator - Inviqa</title>
           <meta name="description" content={openGraphData.description} />
 
           <meta name="application-name" content={openGraphData.title} />
