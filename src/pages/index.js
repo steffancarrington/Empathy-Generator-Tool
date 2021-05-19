@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFirebaseData } from '../hooks/useFirebaseData';
 import Head from 'next/head';
 import Header from '../components/Header';
@@ -24,6 +24,15 @@ const openGraphData = {
 };
 
 export default function Home({ inclusiveData }) {
+  // Register Service Worker
+  useEffect(() => {
+    register('/service-worker.js', { scope: '/' });
+
+    return () => {
+      unregister();
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -46,6 +55,11 @@ export default function Home({ inclusiveData }) {
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" content="#ffffff"></meta>
+
+        {/* Service Worker Implementation */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Inviqa - ICS" />
 
         {/* Facebook Open Graph Data - Image Size (1200 x 630) */}
         <meta property="og:locale" content={openGraphData.locale} />
