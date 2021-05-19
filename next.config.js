@@ -1,13 +1,7 @@
-const withOffline = require('next-offline');
-const path = require('path');
-const nextConfig = {
-  generateInDevMode: false,
-  dontAutoRegisterSw: true,
-  generateSw: false,
-  workboxOpts: {
-    swDest: './service-worker.js',
-    swSrc: path.join(__dirname, 'sw.js')
-  }
-};
+const withPWA = require('next-pwa');
 
-module.exports = withOffline(nextConfig);
+module.exports = withPWA({
+  pwa: {
+    dest: 'public'
+  }
+});
