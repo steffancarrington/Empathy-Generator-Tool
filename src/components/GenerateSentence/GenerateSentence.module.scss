@@ -7,11 +7,7 @@
 @import '../../../styles/02-tools/animations';
 
 .sentence {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  margin: 0 auto;
+  margin: auto;
   max-width: size(950);
   @include fluidType(font-size, 320px, 900px, 24px, 50px);
   font-weight: 800;
