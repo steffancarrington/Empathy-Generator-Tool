@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFirebaseData } from '../hooks/useFirebaseData';
 import Head from 'next/head';
 import Header from '../components/Header';

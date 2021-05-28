@@ -46,14 +46,12 @@ const GenerateSentence = ({
   );
 
   return (
-    <>
-      <p className={styles.sentence} aria-live="polite" suppressHydrationWarning={true}>
-        {name}, {age} years old, would like to find {editableText}
-        {task.length > 0 ? clearTextBtn : ''} whilst being {biological}
-        {toggleActive && `, ${cultural} and `}
-        {toggleActive && organisational}
-      </p>
-    </>
+    <p className={styles.sentence} aria-live="polite" suppressHydrationWarning={true}>
+      {name}, {age} years old, would like to find {editableText}
+      {task.length > 0 ? clearTextBtn : ''} whilst being {biological}
+      {toggleActive && `, ${cultural} and `}
+      {toggleActive && organisational}
+    </p>
   );
 };
 
