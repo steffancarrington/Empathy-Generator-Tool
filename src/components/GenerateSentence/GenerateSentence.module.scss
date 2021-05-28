@@ -28,13 +28,13 @@
 .clearBtn {
   position: relative;
   top: size(1);
-  padding: 0 size(2) 0 size(8);
+  padding: 0 size(8);
   background: transparent;
   border: none;
   border-bottom: size(4) solid;
 
   @include breakpoint(medium) {
-    padding-left: size(15);
+    padding: 0 size(15);
   }
 }
 
