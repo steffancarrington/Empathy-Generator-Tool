@@ -39,8 +39,11 @@ const GenerateSentence = ({
   };
 
   const clearTextBtn = (
-    <button className={styles.clearBtn} type="button" onClick={() => onClearText()}>
-      <span className="hidden-v">Clear edited text</span>
+    <button
+      className={styles.clearBtn}
+      type="button"
+      aria-label="Clear edited text"
+      onClick={() => onClearText()}>
       <Close className={styles.clearIcon} aria-hidden="true" />
     </button>
   );
