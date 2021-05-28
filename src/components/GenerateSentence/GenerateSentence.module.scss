@@ -24,3 +24,22 @@
     padding-bottom: 0;
   }
 }
+
+.clearBtn {
+  position: relative;
+  top: size(1);
+  padding: 0 size(2) 0 size(8);
+  background: transparent;
+  border: none;
+  border-bottom: size(4) solid;
+
+  @include breakpoint(medium) {
+    padding-left: size(15);
+  }
+}
+
+.clearIcon {
+  fill: var(--inviqa-brand-neutral);
+  @include fluidType(height, 320px, 900px, 15px, 32px);
+  @include fluidType(width, 320px, 900px, 15px, 32px);
+}

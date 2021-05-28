@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styles from './GenerateSentence.module.scss';
+import Close from '../../../public/close.svg';
 
 // Editable Component
 import Editable from '../EditableSentence';
@@ -13,14 +14,12 @@ const GenerateSentence = ({
   organisational,
   toggleActive
 }) => {
-  // const [editableDimension, setEditableDimension] = useState(objective);
-
   // Create a reference using use reference and add the ref={inputRef} to input element
   const inputRef = useRef();
   // State for Input
   const [task, setTask] = useState('');
 
-  const editableTest = (
+  const editableText = (
     <Editable text={task} placeholder={objective} childRef={inputRef} type="input">
       <input
         ref={inputRef}
@@ -34,10 +33,23 @@ const GenerateSentence = ({
     </Editable>
   );
 
+  const onClearText = () => {
+    setTask('');
+    document.getElementById('editableText').focus();
+  };
+
+  const clearTextBtn = (
+    <button className={styles.clearBtn} type="button" onClick={() => onClearText()}>
+      <span className="hidden-v">Clear edited text</span>
+      <Close className={styles.clearIcon} aria-hidden="true" />
+    </button>
+  );
+
   return (
     <>
       <p className={styles.sentence} aria-live="polite" suppressHydrationWarning={true}>
-        {name}, {age} years old, would like to find {editableTest} whilst being {biological}
+        {name}, {age} years old, would like to find {editableText}
+        {task.length > 0 ? clearTextBtn : ''} whilst being {biological}
         {toggleActive && `, ${cultural} and `}
         {toggleActive && organisational}
       </p>

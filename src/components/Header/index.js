@@ -8,10 +8,10 @@ const Header = () => {
       <a href="https://inviqa.com/" title="Click here to see more great content from Inviqa">
         <img
           className={styles.header__logo}
-          src="/logo.svg" 
-          height={65} 
-          width={65} 
-          alt="Inviqa Logo" 
+          src="/logo.svg"
+          height={65}
+          width={65}
+          alt="Inviqa Logo"
         />
       </a>
     </header>

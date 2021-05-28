@@ -8,6 +8,11 @@ const Editable = ({ text, type, placeholder, children, childRef }) => {
     if (childRef && childRef.current && isEditing === true) {
       childRef.current.focus();
     }
+
+    if (isEditing === false && text.length > 0) {
+      // Make span element focusable after finishing editing
+      document.getElementById('editableText').focus();
+    }
   }, [isEditing, childRef]);
 
   const handleKeyDown = (event, type) => {
