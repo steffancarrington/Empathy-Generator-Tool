@@ -13,6 +13,8 @@ export default function Home({ inclusiveData }) {
         <meta name="robots" content="noindex" />
         <meta name="googlebot" content="noindex" />
 
+        <title>Inclusive Scenario Generator - Inviqa</title>
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

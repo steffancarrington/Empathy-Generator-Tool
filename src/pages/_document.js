@@ -27,9 +27,7 @@ export default class extends Document {
     return (
       <Html lang="en-gb" dir="ltr">
         <Head>
-          <title>{openGraphData.title}</title>
           <meta name="description" content={openGraphData.description} />
-
           <meta name="application-name" content={openGraphData.title} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
