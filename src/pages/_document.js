@@ -8,10 +8,8 @@ const openGraphData = {
   ogType: 'article',
   ogHandle: '@inviqa',
   ogAuthor: 'Inviqa',
-  ogImageFacebook:
-    'https://inclusive-scenario-generator.vercel.app/inclusive-scenario-generator.jpg',
-  ogImageTwitter:
-    'https://inclusive-scenario-generator.vercel.app/inclusive-scenario-generator.jpg',
+  ogImageFacebook: 'https://inclusion.inviqa.com/inclusive-scenario-generator.jpg',
+  ogImageTwitter: 'https://inclusion.inviqa.com/inclusive-scenario-generator.jpg',
   ogImageType: 'image/png',
   ogImageAlt: 'Inclusive Scenario Generator App',
   ogImageHeight: '630',
