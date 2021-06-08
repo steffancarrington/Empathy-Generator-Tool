@@ -27,6 +27,24 @@ export default class extends Document {
     return (
       <Html lang="en-gb" dir="ltr">
         <Head>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `
+            }}
+          />
+
           <meta name="description" content={openGraphData.description} />
           <meta name="application-name" content={openGraphData.title} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -65,6 +83,13 @@ export default class extends Document {
           <meta name="twitter:image" content={openGraphData.ogImageTwitter} />
         </Head>
         <body>
+          {/* Google Tag Manager (noscript) */}
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`
+            }}></noscript>
+          {/* End Google Tag Manager (noscript) */}
           <Main />
           <NextScript />
         </body>
