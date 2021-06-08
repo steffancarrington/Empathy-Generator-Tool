@@ -10,8 +10,8 @@ export default function Home({ inclusiveData }) {
     <>
       <Head>
         {/* Disable Search Engine Indexing and Crawling */}
-        <meta name="robots" content="noindex" />
-        <meta name="googlebot" content="noindex" />
+        <meta name="robots" content="index" />
+        <meta name="googlebot" content="index" />
 
         <title>Inclusive Scenario Generator - Inviqa</title>
 
