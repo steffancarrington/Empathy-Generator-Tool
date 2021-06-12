@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 const openGraphData = {
   locale: 'en_GB',
   title: 'Inclusive Scenario Generator - Inviqa',
-  description: 'The Inviqa team explores an inclusive scenario generator tool',
+  description: 'Have a go at creating inclusive scenarios together with us',
   ogUrl: 'https://inviqa.com/',
   ogType: 'article',
   ogHandle: '@inviqa',
