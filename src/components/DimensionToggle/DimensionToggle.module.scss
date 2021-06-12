@@ -33,7 +33,7 @@
   width: size(22);
   background: #ffffff;
   border-radius: 50%;
-  transition: all 0.2s linear;
+  transition: transform 0.2s linear;
 
   .button[aria-checked='true'] & {
     transform: translateX(0.625rem);
